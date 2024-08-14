@@ -1,16 +1,16 @@
-function Tile() {
+function Tile({ className, value, onClick, playerTurn }) {
+    let hoverClass = null;
+
+    if(value == null && playerTurn != null) {
+        hoverClass = `${playerTurn.toLowerCase()}-hover`;
+    }
+
+
     return ( 
-        <div className="tile"> 
-            X
+        <div onClick={onClick} className={`tile ${className} ${hoverClass}`}> 
+            {value}
         </div>
     );
-
-
-
-
-
-
-
 
 }
 
