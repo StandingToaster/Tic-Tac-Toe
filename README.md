@@ -1,3 +1,9 @@
+## Description
+
+The classing 3x3 game remastered in a modern web-app form factor! 
+Made by Harsimran Singh Kalsi
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
