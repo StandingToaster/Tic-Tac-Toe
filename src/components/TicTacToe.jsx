@@ -3,14 +3,11 @@ import Board from "./Board";
 import GameOver from "./GameOver";
 import GameState from "./GameState";
 import Reset from "./Reset";
-import gameOverSoundAsset from '../sounds/game_over.wav';
-import clickSoundAsset from '../sounds/click.wav';
+import gameOverSoundAsset from '../sounds/bomboclat.wav';
+import clickSoundAsset from '../sounds/iphone-ding.wav';
 
 const gameOverSound = new Audio(gameOverSoundAsset);
-gameOverSound.volume = 0.2;
-
-const clickSound = new Audio(clickSoundAsset);
-clickSound.volume = 0.5;
+gameOverSound.volume = 1;
 
 const PLAYER_X = 'X';
 const PLAYER_O = 'O';
@@ -95,10 +92,16 @@ function TicTacToe() {
         [tiles]
     );
 
+    const playClickSound = ()=> {
+        const sound = new Audio(clickSoundAsset);
+        sound.volume = 0.5;
+        sound.play();
+    };
+
     useEffect(
         ()=>{
             if(tiles.some((tile) => tile !== null)) {
-                clickSound.play();
+                playClickSound();
             }
         }, [tiles]
     );
