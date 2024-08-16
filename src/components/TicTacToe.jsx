@@ -4,7 +4,7 @@ import GameOver from "./GameOver";
 import GameState from "./GameState";
 import Reset from "./Reset";
 import gameOverSoundAsset from '../sounds/bomboclat.wav';
-import clickSoundAsset from '../sounds/iphone-ding.wav';
+import clickSoundAsset from '../sounds/click.wav';
 
 const gameOverSound = new Audio(gameOverSoundAsset);
 gameOverSound.volume = 1;
@@ -81,6 +81,11 @@ function TicTacToe() {
     }
 
     const handleReset = ()=>{
+        // Stop the game over sound
+        gameOverSound.pause();
+        gameOverSound.currentTime = 0;
+        
+        // Reset the game state
         setGameState(GameState.inProgress);
         setTiles(Array(9).fill(null));
         setPlayerTurn(PLAYER_X);
